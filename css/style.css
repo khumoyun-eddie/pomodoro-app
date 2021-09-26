@@ -144,6 +144,11 @@ body {
   border-radius: 3rem;
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
   z-index: 10;
+  @media screen and (max-width: 600px) {
+  .modal {
+    width: 40rem;
+  }
+}
 }
 .modal__header {
   display: flex;
@@ -227,6 +232,11 @@ body {
   color: #161932;
   font-weight: bold;
   font-size: 2rem;
+  @media screen and (max-width: 600px) {
+  .form__input {
+    width: 8rem;
+  }
+}
 }
 .form__input .input__icons {
   grid-column: 2/3;
@@ -241,7 +251,13 @@ body {
   margin: 0.5rem 0;
   cursor: pointer;
 }
-
+@media screen and (max-width: 600px) {
+  .form__input-icon {
+    width: 1.2rem;
+    height: 1rem;
+    margin: 0.3rem 0;
+  }
+}
 .options {
   grid-column: 3/4;
   display: flex;
