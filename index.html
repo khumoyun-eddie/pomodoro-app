@@ -32,7 +32,17 @@
       </header>
       <div class="circle">
         <div class="circle__inner">
-          <div class="circle__bar"></div>
+
+            <svg class="progress-ring" height ='120' width = '120'>
+              <circle class="progress-ring__circle" 
+              stroke-width='10'
+              fill = 'transparent'
+              r="170"
+              cx="185"
+              cy="185"
+              />
+            </svg>
+        
           <div class="circle__time">
             <h1 class="time">25:00</h1>
           </div>
@@ -141,7 +151,12 @@
       </div>
       <div class="overlay hidden"></div>
     </div>
-
     <script src="js/script.js"></script>
   </body>
-</html>
+  </html>
+  <!-- 
+    make min and sec in different elements
+    <div class="mins">00</div>
+    <div class="dots">:</div>
+    <div class="secs">00</div>
+-->
