@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@200;400;700&family=Roboto+Slab:wght@200;400;700&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Pomodoro app</title>
+  </head>
+  <body>
+    <div class="container theme-orange">
+      <header class="header">
+        <h1 class="header__title">pomodoro</h1>
+        <div class="header__buttons">
+          <ul class="header__list">
+            <li class="header__item">
+              <a href="#" data-value="25" data-buttons = 'pomodoro' class="header__link btn btn--active">pomodoro</a>
+            </li>
+            <li class="header__item">
+              <a href="#" data-value="5" data-buttons = 'short-break' class="header__link btn">short break</a>
+            </li>
+            <li class="header__item">
+              <a href="#" data-value="10" data-buttons = 'long-break' class="header__link btn">long break</a>
+            </li>
+          </ul>
+        </div>
+      </header>
+      <div class="circle">
+        <div class="circle__inner">
+          <div class="circle__bar"></div>
+          <div class="circle__time">
+            <h1 class="time">25:00</h1>
+          </div>
+          <div class="circle__button">
+            <h1 class="text-button">start</h1>
+          </div>
+        </div>
+      </div>
+      <div class="settings">
+        <img src="assets/icon-settings.svg" alt="" class="icon-settings" />
+        <div class="modal hidden">
+          <div class="modal__header">
+            <h1 class="modal__title">Settings</h1>
+            <button class="modal__close">&times;</button>
+          </div>
+          <div class="modal__container">
+            <div class="modal__content">
+              <h4 class="content__title">time (minutes)</h4>
+              <div class="form">
+                <p class="form__label">pomodoro</p>
+                <div class="form__input">
+                  <div id="pomodoro" class="inputs">25</div>
+                  <div class="input__icons">
+                    <img
+                      src="assets/icon-arrow-up.svg"
+                      alt=""
+                      class="form__input-icon form__input-icon--up"
+                    />
+                    <img
+                      src="assets/icon-arrow-down.svg"
+                      alt=""
+                      class="form__input-icon form__input-icon--down"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="form">
+                <p class="form__label">short break</p>
+                <div class="form__input">
+                  <div id="short-break"  class="inputs">5</div>
+                  <div class="input__icons">
+                    <img
+                      src="assets/icon-arrow-up.svg"
+                      alt=""
+                      class="form__input-icon form__input-icon--up"
+                    />
+                    <img
+                      src="assets/icon-arrow-down.svg"
+                      alt=""
+                      class="form__input-icon form__input-icon--down"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="form">
+                <p class="form__label">long break</p>
+                <div class="form__input">
+                  <div id="long-break" class="inputs">15</div>
+                  <div class="input__icons">
+                    <img
+                      src="assets/icon-arrow-up.svg"
+                      alt=""
+                      class="form__input-icon form__input-icon--up"
+                    />
+                    <img
+                      src="assets/icon-arrow-down.svg"
+                      alt=""
+                      class="form__input-icon form__input-icon--down"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal__content">
+              <h4 class="content__title content__title--2">font</h4>
+              <div class="options" id="fonts">
+                <div data-font='0' title="Font Kumbh"
+                  class="
+                    option option__fonts option__fonts--active option__fonts--1
+                  "
+                >
+                  Aa
+                </div>
+                <div data-font = '1' title="Font Roboto" class="option option__fonts option__fonts--2">Aa</div>
+                <div data-font = '2' title="Font Space Mono" class="option option__fonts option__fonts--3">Aa</div>
+              </div>
+            </div>
+
+            <div class="modal__content">
+              <h4 class="content__title content__title--2">color</h4>
+              <div class="options" id="colors">
+                <div data-color = '0'
+                  class="
+                    option option__color option__color--active option__color--1
+                  "
+                ></div>
+                <div data-color = '1' class="option option__color option__color--2"></div>
+                <div data-color = '2' class="option option__color option__color--3"></div>
+              </div>
+            </div>
+
+            <a href="#" id="apply" class="btn2 btn--orange">Apply</a>
+          </div>
+        </div>
+      </div>
+      <div class="overlay hidden"></div>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
