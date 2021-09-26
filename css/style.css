@@ -16,6 +16,11 @@ html {
     font-size: 50%;
   }
 }
+@media screen and (max-width: 600px) {
+  html {
+    font-size: 30%;
+  }
+}
 
 body {
   font-family: "Kumbh Sans", sans-serif;
@@ -32,6 +37,12 @@ body {
 @media screen and (max-width: 900px) {
   .container {
     max-width: 90rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .container {
+    max-width: 40rem;
+    margin: 5rem auto;
   }
 }
 
@@ -144,11 +155,11 @@ body {
   border-radius: 3rem;
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
   z-index: 10;
-  @media screen and (max-width: 600px) {
-  .modal {
-    width: 40rem;
-  }
 }
+@media screen and (max-width: 600px) {
+  .modal {
+    width: 50rem;
+  }
 }
 .modal__header {
   display: flex;
@@ -232,11 +243,11 @@ body {
   color: #161932;
   font-weight: bold;
   font-size: 2rem;
-  @media screen and (max-width: 600px) {
+}
+@media screen and (max-width: 600px) {
   .form__input {
     width: 8rem;
   }
-}
 }
 .form__input .input__icons {
   grid-column: 2/3;
@@ -258,6 +269,7 @@ body {
     margin: 0.3rem 0;
   }
 }
+
 .options {
   grid-column: 3/4;
   display: flex;
