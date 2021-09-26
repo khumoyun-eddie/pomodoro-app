@@ -18,6 +18,7 @@ html {
 }
 @media screen and (max-width: 600px) {
   html {
+    font-size: 40%;
     font-size: 30%;
   }
 }
@@ -42,7 +43,7 @@ body {
 @media screen and (max-width: 600px) {
   .container {
     max-width: 40rem;
-    margin: 5rem auto;
+    margin: 12rem auto;
   }
 }
 
@@ -110,18 +111,20 @@ body {
   font-size: 10rem;
   color: #d7e0ff;
 }
-.circle__bar {
-  width: 90%;
-  height: 90%;
-  border-radius: 50%;
+.circle .progress-ring {
+  width: 100%;
+  height: 100%;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
 }
-.circle__bar .progress-ring__circle {
-  stroke-dasharray: 10 20;
+.circle .progress-ring .progress-ring__circle {
+  border-radius: 3rem;
+  transition: 0.5s;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
 }
 .circle__button {
   z-index: 10;
@@ -137,6 +140,17 @@ body {
   letter-spacing: 1.5rem;
 }
 
+@keyframes pulse {
+  0%, 100% {
+    transform: rotate(-90deg) scale(1);
+  }
+  50% {
+    transform: rotate(-90deg) scale(1.05);
+  }
+  75% {
+    transform: rotate(-90deg) scale(0.8);
+  }
+}
 .icon-settings {
   cursor: pointer;
 }
@@ -154,7 +168,12 @@ body {
   background-color: #fff;
   border-radius: 3rem;
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
-  z-index: 10;
+  z-index: 111;
+}
+@media screen and (max-width: 600px) {
+  .modal {
+    width: 45rem;
+  }
 }
 @media screen and (max-width: 600px) {
   .modal {
@@ -209,7 +228,7 @@ body {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(3px);
-  z-index: 5;
+  z-index: 110;
 }
 
 .form {
@@ -343,8 +362,8 @@ body {
   background-color: #f87070;
   color: #1e213f;
 }
-.theme-orange .circle__bar {
-  border: 1rem solid #f87070;
+.theme-orange .circle .progress-ring .progress-ring__circle {
+  stroke: #f87070;
 }
 
 .theme-blue .header .btn--active {
