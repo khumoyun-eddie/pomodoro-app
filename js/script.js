@@ -1,6 +1,5 @@
 "use strict";
-/* Opening settings bar */
-
+const controlBtn = document.querySelector(".text-button");
 const labelTimer = document.querySelector(".time");
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
@@ -16,6 +15,10 @@ const iconDown = document.querySelectorAll(".form__input-icon--down");
 const applyBtn = document.querySelector("#apply");
 let timeInputs = document.querySelectorAll(".inputs");
 
+const optionFonts = document.querySelectorAll(".option__fonts");
+const fontOptionSet = document.querySelector("#fonts");
+const fontSet = ["Kumbh Sans", "Roboto Slab", "Space Mono"];
+
 const pomodoroBtn = document.querySelector('.btn[data-buttons="pomodoro"]');
 const shortBreakBtn = document.querySelector(
   '.btn[data-buttons="short-break"]'
@@ -27,7 +30,14 @@ let [activeBtn] = [...btnArray].filter((btn) =>
   btn.classList.contains("btn--active")
 );
 
-const controlBtn = document.querySelector(".text-button");
+const container = document.querySelector(".container");
+const optionColors = document.querySelectorAll(".option__color");
+const colorOptionSet = document.querySelector("#colors");
+const themes = ["theme-orange", "theme-blue", "theme-pink"];
+
+/////////////////////////////////////////////////
+/* Opening settings bar */
+
 const openModal = function () {
   modal.classList.remove("hidden");
   overlay.classList.remove("hidden");
@@ -49,7 +59,7 @@ document.addEventListener("keydown", function (e) {
   }
 });
 /////////////////////////////////////////////////////////////////////
-
+/* Displaying time */
 const displayTime = function (seconds) {
   const min = String(Math.trunc(seconds / 60)).padStart(2, 0);
   const sec = String(seconds % 60).padStart(2, 0);
@@ -76,12 +86,8 @@ controlOptions.addEventListener("click", (e) => {
 
 /////////////////////////////////////////////////////////////////////
 /* Theme changing */
-const container = document.querySelector(".container");
-const optionColors = document.querySelectorAll(".option__color");
-const colorOptionSet = document.querySelector("#colors");
 
 // container.classList.add("theme-orange");
-const themes = ["theme-orange", "theme-blue", "theme-pink"];
 
 colorOptionSet.addEventListener("click", function (e) {
   const clicked = e.target.closest(".option__color");
@@ -97,10 +103,6 @@ colorOptionSet.addEventListener("click", function (e) {
 });
 //////////////////////////////////////////////////////////////////////
 /* Font changing */
-const optionFonts = document.querySelectorAll(".option__fonts");
-const fontOptionSet = document.querySelector("#fonts");
-const fontSet = ["Kumbh Sans", "Roboto Slab", "Space Mono"];
-
 fontOptionSet.addEventListener("click", function (e) {
   const clicked = e.target.closest(".option__fonts");
   if (!clicked) return;
@@ -198,7 +200,7 @@ const sound = function (time, activeBtn) {
 };
 
 /* Timer logic */
-let timeLeft;
+let timeLeft,perc;
 let paused = false;
 const setTimer = function (time) {
   const tick = function () {
@@ -208,6 +210,10 @@ const setTimer = function (time) {
       clearInterval(timer);
       controlBtn.textContent = "restart";
     }
+    perc =100-(100/(activeBtn.dataset.value*60))
+    console.log(perc);
+  
+    setProgress(perc)
     timeLeft = time--;
   };
   tick();
@@ -226,9 +232,10 @@ controlBtn.addEventListener("click", function (e) {
   if (this.textContent === "start" || this.textContent === "restart") {
     // changes textContent to Pause
     startLogic(activeBtn.dataset.value * 60, e.target);
+    setProgress(100)
   } else if (this.textContent === "pause") {
     this.textContent = "resume";
-
+    breakSound.pause();
     displayTime(timeLeft);
     clearInterval(interval);
   } else if (this.textContent === "resume") {
@@ -242,4 +249,17 @@ function startLogic(activeBtn, target) {
 
   if (interval) clearInterval(interval);
   interval = setTimer(activeBtn);
+}
+///////////////////////////////////////////////////////////////////////////
+/* Progress bar logic */
+const circle = document.querySelector(".progress-ring__circle");
+const radius = circle.r.baseVal.value;
+const circumference = radius * 2 * Math.PI;
+
+circle.style.strokeDasharray = circumference;
+circle.style.strokeDashoffset = circumference;
+
+function setProgress(percent) {
+  const offset = circumference - (percent / 100) * circumference;
+  circle.style.strokeDashoffset = offset;
 }
