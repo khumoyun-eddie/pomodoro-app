@@ -19,7 +19,6 @@ html {
 @media screen and (max-width: 600px) {
   html {
     font-size: 40%;
-    font-size: 30%;
   }
 }
 
@@ -126,6 +125,28 @@ body {
   transform: rotate(-90deg);
   transform-origin: 50% 50%;
 }
+@media screen and (max-width: 1400px) {
+  .circle .progress-ring .progress-ring__circle {
+    r: 165;
+    cx: 184;
+    cy: 184;
+  }
+}
+@media screen and (max-width: 900px) {
+  .circle .progress-ring .progress-ring__circle {
+    r: 128;
+    cx: 148;
+    cy: 148;
+  }
+}
+@media screen and (max-width: 600px) {
+  .circle .progress-ring .progress-ring__circle {
+    r: 104;
+    cx: 119;
+    cy: 119;
+    stroke-width: 6;
+  }
+}
 .circle__button {
   z-index: 10;
 }
@@ -173,11 +194,6 @@ body {
 @media screen and (max-width: 600px) {
   .modal {
     width: 45rem;
-  }
-}
-@media screen and (max-width: 600px) {
-  .modal {
-    width: 50rem;
   }
 }
 .modal__header {
