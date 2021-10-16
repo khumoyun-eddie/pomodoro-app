@@ -196,6 +196,11 @@ body {
     width: 45rem;
   }
 }
+@media screen and (max-width: 600px) {
+  .modal {
+    width: 50rem;
+  }
+}
 .modal__header {
   display: flex;
   justify-content: space-between;
