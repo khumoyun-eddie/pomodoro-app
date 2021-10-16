@@ -210,10 +210,10 @@ const setTimer = function (time) {
       clearInterval(timer);
       controlBtn.textContent = "restart";
     }
-    perc =100-(100/(activeBtn.dataset.value*60))
-    console.log(perc);
+   // perc =100-(100/(activeBtn.dataset.value*60))
+    //console.log(perc);
   
-    setProgress(perc)
+   // setProgress(perc)
     timeLeft = time--;
   };
   tick();
